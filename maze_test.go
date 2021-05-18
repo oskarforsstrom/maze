@@ -15,7 +15,7 @@ func TestNewGraph(t *testing.T) {
 	}{
 		{g_1.vertices, 1},
 		{g_5.vertices, 25},
-		{g_100.vertices, 100},
+		{g_100.vertices, 10000},
 	}
 	for _, e := range tests {
 		res := len(e.vertices)
@@ -51,8 +51,10 @@ func TestNewGraph(t *testing.T) {
 			t.Errorf("len(%v.neighbours) = %v, expected: 3", vert.key, res)
 		} else if y == 5 && res != 3 {
 			t.Errorf("len(%v.neighbours) = %v, expected: 3", vert.key, res)
-		} else if res != 4 {
-			t.Errorf("len(%v.neighbours) = %v, expected: 4", vert.key, res)
+		} else if x != 1 && x != 5 && y != 1 && y != 5 {
+			if res != 4 {
+				t.Errorf("len(%v.neighbours) = %v, expected: 4", vert.key, res)
+			}
 		}
 	}
 
@@ -68,6 +70,8 @@ func TestNewGraph(t *testing.T) {
 
 func TestString(t *testing.T) {
 	g_5 := NewGraph(5, 5)
+	g_5.AddStart(1, 1)
+	g_5.AddFinish(1, 5)
 	for i := 1; i <= 3; i++ {
 		g_5.AddObstacle(i, 3)
 	}
@@ -78,8 +82,8 @@ func TestString(t *testing.T) {
 		g   Graph
 		exp string
 	}{
-		{g_5, ".-------.-------.-------.-------.-------.\n| ( s )   (1,2) | (1,3) | (1,4)   ( f ) |\n:       +       +-------+       +       +\n| (2,1)   (2,2) | (2,3) | (2,4)   (2,5) |\n:       +       +-------+       +       +\n| (3,1)   (3,2) | (3,3) | (3,4)   (3,5) |\n:       +       +-------+       +       +\n| (4,1)   (4,2)   (4,3)   (4,4)   (4,5) |\n:       +       +       +       +       +\n| (5,1)   (5,2)   (5,3)   (5,4)   (5,5) |\n'-------'-------'-------'-------'-------'"},
-		{g_1_2, ".-------.-------.\n| (1,1)   (1,2) |\n'-------'-------'"},
+		{g_5, ".-------.-------.-------.-------.-------.\n| ( s )   (1,2) | (1,3) | (1,4)   ( f ) |\n:       +       +-------+       +       +\n| (2,1)   (2,2) | (2,3) | (2,4)   (2,5) |\n:       +       +-------+       +       +\n| (3,1)   (3,2) | (3,3) | (3,4)   (3,5) |\n:       +       +-------+       +       +\n| (4,1)   (4,2)   (4,3)   (4,4)   (4,5) |\n:       +       +       +       +       +\n| (5,1)   (5,2)   (5,3)   (5,4)   (5,5) |\n'-------'-------'-------'-------'-------'\n"},
+		{g_1_2, ".-------.-------.\n| (1,1)   (1,2) |\n'-------'-------'\n"},
 	}
 	for _, e := range tests {
 		res := e.g.String()

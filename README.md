@@ -19,11 +19,11 @@ The package builds a maze based on a object-oriented graph with vertices and edg
     
     import (
         "fmt"
-        "gits-15.sys.kth.se/grudat21/oghvfo-ovn7"
+        "github.com/oskarforsstrom/maze"
     )
 
     func main() {
-	    g := NewGraph(5, 5)
+	    g := maze.NewGraph(5, 5)
 	    g.AddStart(1, 1)
 	    g.AddFinish(1, 5)
 	    for i := 1; i <= 3; i++ {

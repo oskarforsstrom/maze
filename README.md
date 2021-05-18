@@ -2,13 +2,19 @@
 
 ### Go maze data structure and ASCII visualizer with function for finding the shortest path from given start- and endpoints
 
-When a maze has multiple solutions one might wanna find the shortest possible path from start to finish. The BFS method of finding the shortest possible path uses a queue to visit vertice with increasing distance from the start-vertex and thereby finds the shortest possible path.
+When a maze has multiple solutions one might wanna find the shortest possible path from start to finish. The BFS method of finding the shortest possible path uses a queue to visit vertices with increasing distance from the start-vertex and thereby finds the shortest possible path.
 
----
+## Installation
+
+run this command to install the `maze` package:
+
+    go get github.com/oskarforsstrom/maze
+
 
 # Documentation
 ## Overview
 The package builds a maze based on a object-oriented graph with vertices and edges with adjencency lists. Every vertex has a unique two integer (coordinate) representation and can only have edges to adjencent vertices (non-diagonal).
+
 ## Examples
 
 <details>

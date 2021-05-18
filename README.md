@@ -19,6 +19,7 @@ The package builds a maze based on a object-oriented graph with vertices and edg
     
     import (
         "fmt"
+        
         "github.com/oskarforsstrom/maze"
     )
 

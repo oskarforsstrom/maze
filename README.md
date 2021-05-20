@@ -6,7 +6,7 @@ When a maze has multiple solutions one might wanna find the shortest possible pa
 
 ## Installation
 
-run this command to install the `maze` package:
+Run this command to install the `maze` package:
 
     go get github.com/oskarforsstrom/maze
 
@@ -69,11 +69,11 @@ Graph represents a maze-graph where every vertex is represented by a 2D coordina
 
 ### func NewGraph
     func NewGraph(height int, width int) Graph
-NewGraph creates a graph of size, width x Heigth, where every vertex has a edge connected to every adjencent Vertex (non-diagonal).
+NewGraph creates a graph of size, width x heigth, where every vertex has a edge connected to every adjencent vertex (non-diagonal).
 
 ### func (*Graph) String
     func (g *Graph) String() string
-Reurns a ASCII representation of the graph with visual representation for vertices, edges, startVertex and finishVertex.
+Reurns a ASCII representation of the graph with visual representation for obstacles, startVertex and finishVertex.
 
 ### func (*Graph) AddObstacle
     func (g *Graph) AddObstacle(y int, x int)
